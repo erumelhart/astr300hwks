@@ -1,0 +1,8 @@
+SELECT top 5
+    bestobjID, ra, dec, z
+FROM specObj
+JOIN dbo.fGetNearbyObjEq(180,60,160) n ON n.objID = objID
+WHERE
+    (class = 'qso')
+    AND zWarning = 0
+ORDER BY z desc
